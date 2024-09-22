@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crop Knowledge Hub</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="learnmore1.css">
+</head>
+<body>
+    <header class="bg-success text-white text-center py-4">
+        <div class="container">
+            <h1 class="display-4">Crop Knowledge Hub</h1>
+            <p class="lead">Learn about crops, their dependencies, diseases, and cures.</p>
+            <!-- Language Selector -->
+            <div class="dropdown">
+                <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Select Language
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="#" onclick="changeLanguage('en')">English</a>
+                    <a class="dropdown-item" href="#" onclick="changeLanguage('hi')">Hindi</a>
+                    <a class="dropdown-item" href="#" onclick="changeLanguage('bn')">Bengali</a>
+                    <!-- Add more languages as needed -->
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container my-5">
+        <section>
+            <h2 class="text-primary">Introduction to Crops</h2>
+            <p id="intro">Crops are plants that are cultivated for food, fiber, and other uses. They play a crucial role in agriculture and the economy.</p>
+        </section>
+        
+        <section>
+            <h2 class="text-primary">Dependencies on Weather</h2>
+            <p id="weather">Crops depend heavily on weather conditions. Factors such as temperature, rainfall, and sunlight affect their growth and yield.</p>
+        </section>
+        
+        <section>
+            <h2 class="text-primary">Common Diseases</h2>
+            <p id="diseases">Crops are susceptible to various diseases caused by pathogens such as fungi, bacteria, and viruses. Common diseases include blight, rust, and mildew.</p>
+        </section>
+
+        <section>
+            <h2 class="text-primary">Cures and Prevention</h2>
+            <p id="cures">Prevention and curing of crop diseases involve practices such as crop rotation, use of disease-resistant varieties, and proper use of pesticides.</p>
+        </section>
+    </main>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Custom JS -->
+    <script src="learnmore1.js"></script>
+</body>
+</html>

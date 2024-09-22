@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Chat</title>
+    <!-- <link href="chatbot.css" rel="stylesheet"> -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .chat-container {
+            width: 700px;
+            height: 550px;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .chat-header {
+            background-color: #4caf50;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .chat-box {
+            flex-grow: 1;
+            padding: 20px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .chat-message {
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .user-message {
+            background-color: #4caf50;
+            color: white;
+            align-self: flex-end;
+        }
+
+        .bot-message {
+            background-color: #e0e0e0;
+            color: #333;
+            align-self: flex-start;
+        }
+
+        .chat-input-container {
+            display: flex;
+            padding: 10px;
+            background-color: #f1f1f1;
+        }
+
+        #user-input {
+            flex-grow: 1;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="chat-container"> 
+
+        <div class="chat-header">
+        
+        <h1>Kisan Madad</h1>
+        
+        </div>
+        
+        <div class="chat-box" id="chat-box">
+        
+         <!-- Messages will appear here --> 
+        
+        </div>
+        
+        <div class="chat-input-container"> 
+        
+        <input type="text" id="user-input" placeholder="Ask Kisan Seva...">
+        
+        <button onclick="sendMessage()">Send</button>
+        
+        </div>
+        
+        </div>
+        
+        <script src="chatbot.js"></script>
+</body>
+</html>

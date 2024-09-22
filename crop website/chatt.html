@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat with Gemini-Pro</title>
+    <!-- <link rel="stylesheet" href="style5.css"> -->
+    
+    <style>
+        /* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.chat-container {
+    width: 700px;
+    height: 550px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.chat-header {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+.chat-box {
+    flex-grow: 1;
+    padding: 20px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.chat-message {
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.user-message {
+    background-color: #4caf50;
+    color: white;
+    align-self: flex-end;
+}
+
+.bot-message {
+    background-color: #e0e0e0;
+    color: #333;
+    align-self: flex-start;
+}
+
+.chat-input-container {
+    display: flex;
+    padding: 10px;
+    background-color: #f1f1f1;
+}
+
+#user-input {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    padding: 10px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+
+     </style>
+</head>
+<body>
+    <div class="chat-container">
+        <div class="chat-header">
+            <h1>Kisan Madad</h1>
+        </div>
+        <div class="chat-box" id="chat-box">
+            <!-- Messages will appear here -->
+        </div>
+        <div class="chat-input-container">
+            <input type="text" id="user-input" placeholder="Ask Kisan Madad..." />
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+    
+    <!-- <script src="script.js"></script> -->
+    <script>
+        // script.js
+
+// Function to append messages to the chat box
+function appendMessage(content, sender) {
+    const chatBox = document.getElementById('chat-box');
+    const messageElement = document.createElement('div');
+    messageElement.classList.add('chat-message');
+    
+    if (sender === 'user') {
+        messageElement.classList.add('user-message');
+    } else {
+        messageElement.classList.add('bot-message');
+    }
+
+    messageElement.textContent = content;
+    chatBox.appendChild(messageElement);
+    chatBox.scrollTop = chatBox.scrollHeight;
+}
+
+// Function to send message to Gemini API and get a response
+async function sendMessage() {
+    const userInput = document.getElementById('user-input').value;
+    if (!userInput) return;
+
+    // Display user message
+    appendMessage(userInput, 'user');
+    document.getElementById('user-input').value = '';
+
+    try {
+        const response = await fetch('/api/send-message', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ message: userInput })
+        });
+
+        const data = await response.json();
+        const botMessage = data.reply; // Assuming the API returns a 'reply' field
+
+        // Display bot response
+        appendMessage(botMessage, 'bot');
+    } catch (error) {
+        appendMessage("Error fetching response. Please try again.", 'bot');
+    }
+}
+
+    </script>
+    <script src="server.js"></script>
+
+</body>
+</html>

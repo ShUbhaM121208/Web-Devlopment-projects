@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farmer Community Hub</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="communitypage.css">
+</head>
+<body>
+    <header class="bg-primary text-white text-center py-5">
+        <div class="container">
+            <h1 class="display-4">Farmer Community Hub</h1>
+            <p class="lead">Ask questions, share knowledge, and connect with fellow farmers.</p>
+        </div>
+    </header>
+    
+    <main class="container my-5">
+        <section class="mb-5">
+            <h2 class="text-primary">Ask a Question</h2>
+            <form id="queryForm" class="bg-light p-4 rounded shadow-sm">
+                <div class="form-group">
+                    <label for="farmerId">Farmer ID</label>
+                    <input type="text" id="farmerId" name="farmerId" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="question">Your Question</label>
+                    <textarea id="question" name="question" class="form-control" rows="4" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </section>
+
+        <section>
+            <h2 class="text-primary">Recent Queries</h2>
+            <ul id="queryList" class="list-unstyled">
+                <!-- Queries will be dynamically added here -->
+            </ul>
+        </section>
+    </main>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Custom JS -->
+    <script src="scommunitypage.js"></script>
+</body>
+</html>
+
